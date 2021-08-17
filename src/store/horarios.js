@@ -19,6 +19,7 @@ export default {
         deleteData({ commit, state }, name) {
             const array = state.date.filter((array) => array.name !== name);
             commit('DELETE_DATA', array);
+            commit('DELETE_DATA_LINE', array);
         },
         convert({ commit }, payload) {
             commit('CONVERT_DATA', payload);
@@ -30,6 +31,9 @@ export default {
         },
         DELETE_DATA(state, array) {
             state.date = array;
+        },
+        DELETE_DATA_LINE(state, array) {
+            state.dateLine = array;
         },
         CONVERT_DATA(state, payload) {
             // console.log(payload);
